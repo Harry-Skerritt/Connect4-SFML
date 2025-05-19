@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(SFMLProject)
+project(ConnectFour)
 
 # Set the output directories for the executable
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
@@ -38,6 +38,8 @@ set(SOURCE_FILES
         src/main.cpp
         src/Game.cpp
         src/Game.h
+        src/Network/NetworkManager.cpp
+        src/Network/NetworkManager.h
 )
 
 add_executable(${CMAKE_PROJECT_NAME} ${SOURCE_FILES})

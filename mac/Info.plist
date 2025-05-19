@@ -4,16 +4,16 @@
 <plist version="1.0">
 <dict>
     <key>CFBundleName</key>
-    <string>SFMLProject</string>
+    <string>ConnectFour</string>
 
     <key>CFBundleDisplayName</key>
-    <string>SFMLProject</string>
+    <string>ConnectFour</string>
 
     <key>CFBundleExecutable</key>
-    <string>SFMLProject</string>
+    <string>ConnectFour</string>
 
     <key>CFBundleIdentifier</key>
-    <string>com.yourdomain.sfmlproject</string>
+    <string>com.harryskerritt.connectfour</string>
 
     <key>CFBundleVersion</key>
     <string>1.0</string>

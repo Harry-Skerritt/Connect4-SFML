@@ -22,7 +22,7 @@ int main()
   #endif
 
   // create window and set up
-  sf::RenderWindow window(sf::VideoMode({1080, 720}), "SFML Project!");
+  sf::RenderWindow window(sf::VideoMode({700, 800}), "Connect Four", sf::Style::Close);
 
   //initialise an instance of the game class
   Game game(window);
@@ -30,8 +30,10 @@ int main()
   window.setFramerateLimit(60);
   window.setVerticalSyncEnabled(true);
 
+  sf::View view = window.getDefaultView();
+
   sf::Image icon;
-  if (icon.loadFromFile("Data/Images/icon.png")) {
+  if (icon.loadFromFile("Data/Images/iconset/icon_512x512.png")) {
     window.setIcon(icon);
   }
 
@@ -55,6 +57,14 @@ int main()
     while (const std::optional event = window.pollEvent()) {
       if (event->is<sf::Event::Closed>()) {
         window.close();
+      }
+
+      if (const auto* resize = event->getIf<sf::Event::Resized>()) {
+        view.setSize({
+          static_cast<float>(resize->size.x),
+          static_cast<float>(resize->size.y)
+          });
+        window.setView(view);
       }
 
       else if (const auto* key_pressed = event->getIf<sf::Event::KeyPressed>()) {
@@ -86,7 +96,7 @@ int main()
     //'update' element of the game loop
     game.update(dt);
 
-    window.clear(sf::Color::Black);
+    window.clear(sf::Color(186, 227, 255, 255));
 
     //'render' element of the game loop
     game.render();
