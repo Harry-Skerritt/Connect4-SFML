@@ -4,6 +4,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "Network/NetworkManager.h"
+#include "Widgets/FadeText.h"
 
 class Game
 {
@@ -52,13 +53,27 @@ private:
 
  // Game Cursor
  sf::CircleShape cursor_counter;
- void initCursor();
+ bool draw_cursor = true;
+ const float CURSOR_Y = 100.f;
+ int cursor_column_index;
+ void initCursor(float x_offset);
  void updateCursor(float dt);
+ void cursorClicked();
+ void drawPointer(sf::RenderWindow& window, int num_columns, float top_y, float triangle_height, sf::Color color);
+
+ // Warning Text
+ sf::Font atma_font;
+ //FadeText* warning_text = nullptr;
+ std::unique_ptr<FadeText> warning_text;
+ std::string warning_string = "Space Not Free!";
 
 
 
  // Game State
  int current_go = 1;
+ bool game_enabled = true;
+ void updateBoard();
+ bool checkWin(int win_length = 4);
 
 
 };

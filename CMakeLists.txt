@@ -40,6 +40,8 @@ set(SOURCE_FILES
         src/Game.h
         src/Network/NetworkManager.cpp
         src/Network/NetworkManager.h
+        src/Widgets/FadeText.cpp
+        src/Widgets/FadeText.h
 )
 
 add_executable(${CMAKE_PROJECT_NAME} ${SOURCE_FILES})
